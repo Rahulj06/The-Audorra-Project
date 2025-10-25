@@ -5,6 +5,11 @@
   command = "npm run build"
   # Output directory (where Vite builds to)
   publish = "dist"
+  # Clear cache on each build
+  ignore = "git diff --quiet HEAD^ HEAD"
+
+[build.environment]
+  NODE_VERSION = "18"
 
 # SPA routing - redirect all requests to index.html
 [[redirects]]
@@ -12,27 +17,44 @@
   to = "/index.html"
   status = 200
 
-# Headers for proper MIME types
+# Comprehensive headers for all file types
 [[headers]]
-  for = "/*"
+  for = "/assets/*.js"
   [headers.values]
-    X-Frame-Options = "DENY"
-    X-XSS-Protection = "1; mode=block"
-    X-Content-Type-Options = "nosniff"
-    Referrer-Policy = "strict-origin-when-cross-origin"
+    Content-Type = "text/javascript; charset=utf-8"
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/assets/*.mjs"
+  [headers.values]
+    Content-Type = "text/javascript; charset=utf-8"
+    Cache-Control = "public, max-age=31536000, immutable"
 
 [[headers]]
   for = "/*.js"
   [headers.values]
-    Content-Type = "application/javascript; charset=utf-8"
+    Content-Type = "text/javascript; charset=utf-8"
 
 [[headers]]
   for = "/*.mjs"
   [headers.values]
-    Content-Type = "application/javascript; charset=utf-8"
+    Content-Type = "text/javascript; charset=utf-8"
+
+[[headers]]
+  for = "/assets/*.css"
+  [headers.values]
+    Content-Type = "text/css; charset=utf-8"
+    Cache-Control = "public, max-age=31536000, immutable"
 
 [[headers]]
   for = "/*.css"
   [headers.values]
     Content-Type = "text/css; charset=utf-8"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
 
