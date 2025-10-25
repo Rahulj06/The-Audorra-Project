@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --card: #ffffff;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body { 
+  font-family: 'Nunito', system-ui, -apple-system, Segoe UI, Roboto, 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+/***** Cute subtle gradient background *****/
+body {
+  background-image:
+    radial-gradient(1200px 600px at -10% -10%, rgba(255,214,214,0.30), transparent 50%),
+    radial-gradient(900px 500px at 110% -10%, rgba(205,231,227,0.30), transparent 60%),
+    radial-gradient(800px 500px at 50% 110%, rgba(230,215,255,0.25), transparent 60%);
+}
+
+.card {
+  @apply bg-white rounded-3xl shadow-soft p-5 sm:p-6 md:p-8;
+}
+.btn {
+  @apply inline-flex items-center justify-center rounded-2xl px-5 py-3 font-bold transition transform hover:-translate-y-0.5 active:translate-y-0 touch-manipulation;
+  min-height: 44px; /* iOS touch target minimum */
+}
+.btn-primary { @apply bg-coral text-white hover:opacity-90 active:opacity-80; }
+.btn-ghost { @apply bg-white/70 hover:bg-white active:bg-white/60; }
+.input {
+  @apply w-full rounded-2xl border border-black/5 bg-white px-4 py-3 text-base outline-none placeholder:text-black/40 focus:ring-4 focus:ring-mint/50;
+  min-height: 44px; /* iOS touch target minimum */
+}
+.label { @apply text-sm font-semibold uppercase tracking-wide text-black/60 mb-2 block; }
+
+/* Better mobile audio player styling */
+audio {
+  @apply rounded-xl;
+}
+
+/* Smooth transitions for mobile interactions */
+a, button {
+  @apply touch-manipulation;
+}
+
