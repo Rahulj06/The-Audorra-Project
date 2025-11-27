@@ -23,6 +23,12 @@
     </script>
   </head>
   <body class="bg-cream text-ink">
+    <!-- Hidden form for Netlify Forms detection -->
+    <form name="next-song-form" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="song" />
+      <textarea name="why"></textarea>
+    </form>
+    
     <div id="app"></div>
     <script type="module" src="/src/main.ts"></script>
   </body>
