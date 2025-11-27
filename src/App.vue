@@ -3,13 +3,8 @@
     <!-- Header / Branding -->
     <HeaderHero />
 
-    <!-- Visitor Stats -->
-    <section class="px-3 sm:px-4 md:px-8 lg:px-12 mt-6">
-      <VisitorStats class="max-w-4xl mx-auto" />
-    </section>
-
     <!-- Song of the Day -->
-    <section class="px-3 sm:px-4 md:px-8 lg:px-12 mt-8">
+    <section class="px-3 sm:px-4 md:px-8 lg:px-12 mt-6">
       <SongOfTheDay class="max-w-4xl mx-auto" />
     </section>
 
@@ -34,7 +29,6 @@ import SongOfTheDay from './components/SongOfTheDay.vue'
 import SongRequest from './components/SongRequest.vue'
 import CollaborateBar from './components/CollaborateBar.vue'
 import SiteFooter from './components/SiteFooter.vue'
-import VisitorStats from './components/VisitorStats.vue'
 import { useGoogleAnalytics } from './composables/useAnalytics'
 
 const { trackPageView } = useGoogleAnalytics()
