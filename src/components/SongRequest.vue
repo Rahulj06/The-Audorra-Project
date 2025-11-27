@@ -107,7 +107,7 @@ async function handleSubmit(e: Event) {
     <form @submit="handleSubmit" class="space-y-4">
       <div>
         <label class="label">Song</label>
-        <input v-model="search" class="input" placeholder="Type a song (e.g., 'Kesariya', 'Perfect')" required />
+        <input v-model="search" class="input" placeholder="Type a song" required />
         <!-- Suggestions dropdown -->
         <div v-if="results.length" class="mt-2 bg-white rounded-2xl border border-black/5 shadow-soft divide-y">
           <button
