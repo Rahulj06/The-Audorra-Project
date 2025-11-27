@@ -8,7 +8,7 @@
       </p>
       <div class="mt-5 flex flex-wrap items-center gap-3">
         <a 
-          href="https://www.linkedin.com/" 
+          href="https://www.linkedin.com/in/rahul-jain-a37235183/" 
           target="_blank"
           class="btn btn-ghost"
           aria-label="LinkedIn"

@@ -11,7 +11,7 @@ const { trackSocialClick } = useGoogleAnalytics()
         <div class="text-sm opacity-70">Follow</div>
         <div class="flex flex-col sm:flex-row items-center gap-3">
           <a 
-            href="https://instagram.com/" 
+            href="https://www.instagram.com/itsaudorra/" 
             target="_blank" 
             class="btn btn-ghost w-full sm:w-auto"
             @click="trackSocialClick('Instagram')"
@@ -19,7 +19,7 @@ const { trackSocialClick } = useGoogleAnalytics()
             Instagram
           </a>
           <a 
-            href="https://youtube.com/" 
+            href="https://www.youtube.com/@ItsAudorra" 
             target="_blank" 
             class="btn btn-ghost w-full sm:w-auto"
             @click="trackSocialClick('YouTube')"

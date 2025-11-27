@@ -12,7 +12,7 @@ const { trackCollaborateClick } = useGoogleAnalytics()
         <p class="opacity-80 text-sm sm:text-base">Let's make something beautiful together 💫</p>
       </div>
       <a 
-        href="mailto:theaudorraproject@gmail.com" 
+        href="mailto:rahulj06.rj@gmail.com" 
         class="btn btn-primary w-full md:w-auto whitespace-nowrap"
         @click="trackCollaborateClick"
       >
