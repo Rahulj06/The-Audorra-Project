@@ -36,6 +36,7 @@ const { trackSocialClick } = useGoogleAnalytics()
           </a>
         </div>
         <div class="opacity-60 text-sm mt-2">Retune. Relive. Repeat.</div>
+        <a href="mailto:audorra9@gmail.com" class="opacity-60 text-sm hover:opacity-100 transition">audorra9@gmail.com</a>
         <div class="opacity-40 text-xs">© {{ new Date().getFullYear() }} The Audorra Project</div>
       </div>
     </div>
