@@ -63,8 +63,7 @@ onMounted(async () => {
 
 <template>
   <section id="song-of-day" class="card">
-    <h2 class="text-2xl md:text-3xl font-extrabold mb-2">🎵 Song of the Day</h2>
-    <p class="text-black/60 mb-5">A daily pick to set the mood.</p>
+    <h2 class="text-2xl md:text-3xl font-extrabold mb-5">Song of the Day</h2>
 
     <div v-if="loading" class="animate-pulse grid md:grid-cols-[120px_1fr] gap-4 items-center">
       <div class="w-28 h-28 bg-black/5 rounded-2xl"></div>

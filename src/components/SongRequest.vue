@@ -95,7 +95,7 @@ async function handleSubmit(e: Event) {
 
 <template>
   <section id="request" class="card">
-    <h2 class="text-2xl md:text-3xl font-extrabold mb-2">💌 Recommend my next cover</h2>
+    <h2 class="text-2xl md:text-3xl font-extrabold mb-2">Recommend my next cover</h2>
     <p class="text-black/60 mb-5">Search a song and submit. I'll pick from your top suggestions!</p>
 
     <!-- Hidden Netlify form (for build-time detection) -->

@@ -23,11 +23,6 @@
       <CollaborateBar class="max-w-5xl mx-auto" />
     </section>
 
-    <!-- About me -->
-    <section class="px-3 sm:px-4 md:px-8 lg:px-12 mt-12 md:mt-16 mb-12 md:mb-16">
-      <AboutMe class="max-w-5xl mx-auto" />
-    </section>
-
     <SiteFooter />
   </main>
 </template>
@@ -37,7 +32,6 @@ import { onMounted } from 'vue'
 import HeaderHero from './components/HeaderHero.vue'
 import SongOfTheDay from './components/SongOfTheDay.vue'
 import SongRequest from './components/SongRequest.vue'
-import AboutMe from './components/AboutMe.vue'
 import CollaborateBar from './components/CollaborateBar.vue'
 import SiteFooter from './components/SiteFooter.vue'
 import VisitorStats from './components/VisitorStats.vue'

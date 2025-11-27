@@ -8,7 +8,6 @@ const { visitCount, todayVisits, uniqueVisitors } = useVisitCounter()
   <div class="card bg-gradient-to-br from-mint to-blush">
     <h3 class="text-lg font-extrabold mb-4 flex items-center gap-2">
       📊 Visitor Stats
-      <span class="text-xs font-normal opacity-60">(Local Demo)</span>
     </h3>
     <div class="grid grid-cols-3 gap-4">
       <div class="text-center">
