@@ -25,7 +25,8 @@ async function doSearch(q: string) {
   loading.value = true
   try {
     const url = new URL('https://itunes.apple.com/search')
-    url.searchParams.set('term', q)
+    // Add "indie" to search for indie music focus
+    url.searchParams.set('term', `${q} indie`)
     url.searchParams.set('entity', 'song')
     url.searchParams.set('limit', '8')
     url.searchParams.set('country', 'IN')
@@ -37,7 +38,11 @@ async function doSearch(q: string) {
       trackId: r.trackId,
       artworkUrl100: r.artworkUrl100
     }))
-  } finally { loading.value = false }
+  } catch (err) {
+    results.value = []
+  } finally { 
+    loading.value = false 
+  }
 }
 
 watch(search, (q) => {
@@ -96,7 +101,7 @@ async function handleSubmit(e: Event) {
 <template>
   <section id="request" class="card">
     <h2 class="text-2xl md:text-3xl font-extrabold mb-2">Recommend my next cover</h2>
-    <p class="text-black/60 mb-5">Search a song and submit. I'll pick from your top suggestions!</p>
+    <p class="text-black/60 mb-5">Suggest an indie pop Hindi song. I'll pick from your top recommendations!</p>
 
     <!-- Hidden Netlify form (for build-time detection) -->
     <form name="next-song-form" data-netlify="true" netlify-honeypot="bot-field" hidden>
@@ -107,7 +112,7 @@ async function handleSubmit(e: Event) {
     <form @submit="handleSubmit" class="space-y-4">
       <div>
         <label class="label">Song</label>
-        <input v-model="search" class="input" placeholder="Type a song" required />
+        <input v-model="search" class="input" placeholder="Type an indie pop Hindi song" required />
         <!-- Suggestions dropdown -->
         <div v-if="results.length" class="mt-2 bg-white rounded-2xl border border-black/5 shadow-soft divide-y">
           <button
@@ -117,7 +122,13 @@ async function handleSubmit(e: Event) {
             class="w-full text-left px-4 py-3 hover:bg-cream/60 flex items-center gap-3"
             @click="choose(r)"
           >
-            <img :src="r.artworkUrl100" class="w-10 h-10 rounded-xl" alt=""/>
+            <img 
+              v-if="r.artworkUrl100" 
+              :src="r.artworkUrl100" 
+              class="w-10 h-10 rounded-xl" 
+              alt=""
+              @error="(e) => (e.target as HTMLElement).style.display = 'none'"
+            />
             <div>
               <div class="font-semibold">{{ r.trackName }}</div>
               <div class="text-sm opacity-70">{{ r.artistName }}</div>
