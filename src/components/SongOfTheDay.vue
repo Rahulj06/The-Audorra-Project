@@ -234,7 +234,7 @@ onMounted(async () => {
 
     <div v-else-if="error" class="p-4 bg-red-50 rounded-2xl text-red-700">{{ error }}</div>
 
-    <div v-else-if="track" class="flex flex-col" :class="track.artworkUrl100 ? 'sm:grid sm:grid-cols-[120px_1fr]' : ''" class="gap-4 items-center sm:items-start">
+    <div v-else-if="track" class="flex flex-col gap-4 items-center sm:items-start" :class="track.artworkUrl100 ? 'sm:grid sm:grid-cols-[120px_1fr]' : ''">
       <img 
         v-if="track.artworkUrl100" 
         :src="track.artworkUrl100.replace('100x100','300x300')" 
