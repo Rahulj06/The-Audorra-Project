@@ -16,76 +16,106 @@ const error = ref<string | null>(null)
 const track = ref<ITunesTrack | null>(null)
 const { trackSongPlay } = useGoogleAnalytics()
 
-// Seed list with fallback data
+// Seed list with fallback data - Indie Pop Focus
 const SEED: { title: string; artist: string; fallback: ITunesTrack }[] = [
   { 
-    title: 'Perfect', 
-    artist: 'Ed Sheeran',
+    title: 'Electric Feel', 
+    artist: 'MGMT',
     fallback: {
-      trackName: 'Perfect',
-      artistName: 'Ed Sheeran',
+      trackName: 'Electric Feel',
+      artistName: 'MGMT',
       artworkUrl100: 'https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/1d/90/15/1d9015a4-f411-c6ab-29a5-6ee552464f93/190295859206.jpg/100x100bb.jpg',
-      trackViewUrl: 'https://music.apple.com/in/album/perfect/1440933008?i=1440933009'
+      trackViewUrl: 'https://music.apple.com/album/electric-feel/1440833098?i=1440833483'
     }
   },
   { 
-    title: 'Kesariya', 
-    artist: 'Arijit Singh',
+    title: 'Feels Like We Only Go Backwards', 
+    artist: 'Tame Impala',
     fallback: {
-      trackName: 'Kesariya',
-      artistName: 'Arijit Singh',
+      trackName: 'Feels Like We Only Go Backwards',
+      artistName: 'Tame Impala',
       artworkUrl100: 'https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/fa/05/9e/fa059ec9-f0b5-e27c-43d1-94a4e4e4a4f7/cover.jpg/100x100bb.jpg',
-      trackViewUrl: 'https://music.apple.com/in/album/kesariya/1635544926?i=1635544929'
+      trackViewUrl: 'https://music.apple.com/album/feels-like-we-only-go-backwards/1440873068?i=1440873489'
     }
   },
   { 
-    title: 'Tum Se Hi', 
-    artist: 'Mohit Chauhan',
+    title: 'Riptide', 
+    artist: 'Vance Joy',
     fallback: {
-      trackName: 'Tum Se Hi',
-      artistName: 'Mohit Chauhan',
+      trackName: 'Riptide',
+      artistName: 'Vance Joy',
       artworkUrl100: 'https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/a3/5f/6f/a35f6f2b-0a0a-7a5c-8cf0-9c2e0e0e0e0e/cover.jpg/100x100bb.jpg',
-      trackViewUrl: 'https://music.apple.com/in/album/tum-se-hi/1443478935?i=1443478936'
+      trackViewUrl: 'https://music.apple.com/album/riptide/1440924766?i=1440925056'
     }
   },
   { 
-    title: 'Apna Bana Le', 
-    artist: 'Arijit Singh',
+    title: 'Take Me Out', 
+    artist: 'Franz Ferdinand',
     fallback: {
-      trackName: 'Apna Bana Le',
-      artistName: 'Arijit Singh',
+      trackName: 'Take Me Out',
+      artistName: 'Franz Ferdinand',
       artworkUrl100: 'https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/fb/42/8e/fb428ea3-4a4f-0c0c-2e2e-8e8e8e8e8e8e/cover.jpg/100x100bb.jpg',
-      trackViewUrl: 'https://music.apple.com/in/album/apna-bana-le/1612842946?i=1612842947'
+      trackViewUrl: 'https://music.apple.com/album/take-me-out/1440820989?i=1440821212'
     }
   },
   { 
-    title: 'Tera Ban Jaunga', 
-    artist: 'Akhil Sachdeva',
+    title: 'Pumped Up Kicks', 
+    artist: 'Foster the People',
     fallback: {
-      trackName: 'Tera Ban Jaunga',
-      artistName: 'Akhil Sachdeva',
+      trackName: 'Pumped Up Kicks',
+      artistName: 'Foster the People',
       artworkUrl100: 'https://is1-ssl.mzstatic.com/image/thumb/Music113/v4/e0/20/8b/e0208b91-5a5a-0c0c-2e2e-8e8e8e8e8e8e/cover.jpg/100x100bb.jpg',
-      trackViewUrl: 'https://music.apple.com/in/album/tera-ban-jaunga/1455048574?i=1455048575'
+      trackViewUrl: 'https://music.apple.com/album/pumped-up-kicks/1440815934?i=1440816203'
     }
   },
   { 
-    title: 'Shayad', 
-    artist: 'Arijit Singh',
+    title: 'Dog Days Are Over', 
+    artist: 'Florence + The Machine',
     fallback: {
-      trackName: 'Shayad',
-      artistName: 'Arijit Singh',
+      trackName: 'Dog Days Are Over',
+      artistName: 'Florence + The Machine',
       artworkUrl100: 'https://is1-ssl.mzstatic.com/image/thumb/Music113/v4/c9/ef/40/c9ef4095-1e1e-0e0e-2e2e-8e8e8e8e8e8e/cover.jpg/100x100bb.jpg',
-      trackViewUrl: 'https://music.apple.com/in/album/shayad/1500239238?i=1500239239'
+      trackViewUrl: 'https://music.apple.com/album/dog-days-are-over/1440828567?i=1440828890'
     }
   },
   { 
-    title: 'Pasoori', 
-    artist: 'Ali Sethi',
+    title: 'Stolen Dance', 
+    artist: 'Milky Chance',
     fallback: {
-      trackName: 'Pasoori',
-      artistName: 'Ali Sethi & Shae Gill',
+      trackName: 'Stolen Dance',
+      artistName: 'Milky Chance',
       artworkUrl100: 'https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/f9/8a/3c/f98a3c91-1e1e-0e0e-2e2e-8e8e8e8e8e8e/cover.jpg/100x100bb.jpg',
-      trackViewUrl: 'https://music.apple.com/in/album/pasoori/1609350866?i=1609350867'
+      trackViewUrl: 'https://music.apple.com/album/stolen-dance/1440890123?i=1440890456'
+    }
+  },
+  { 
+    title: 'Mr. Brightside', 
+    artist: 'The Killers',
+    fallback: {
+      trackName: 'Mr. Brightside',
+      artistName: 'The Killers',
+      artworkUrl100: 'https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/d2/3a/1c/d23a1c45-1e1e-0e0e-2e2e-8e8e8e8e8e8e/cover.jpg/100x100bb.jpg',
+      trackViewUrl: 'https://music.apple.com/album/mr-brightside/1440873456?i=1440873789'
+    }
+  },
+  { 
+    title: 'Somebody That I Used to Know', 
+    artist: 'Gotye',
+    fallback: {
+      trackName: 'Somebody That I Used to Know',
+      artistName: 'Gotye',
+      artworkUrl100: 'https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/a1/2b/3c/a12b3c67-1e1e-0e0e-2e2e-8e8e8e8e8e8e/cover.jpg/100x100bb.jpg',
+      trackViewUrl: 'https://music.apple.com/album/somebody-that-i-used-to-know/1440912345?i=1440912678'
+    }
+  },
+  { 
+    title: 'Young Folks', 
+    artist: 'Peter Bjorn and John',
+    fallback: {
+      trackName: 'Young Folks',
+      artistName: 'Peter Bjorn and John',
+      artworkUrl100: 'https://is1-ssl.mzstatic.com/image/thumb/Music118/v4/b3/4c/5d/b34c5d78-1e1e-0e0e-2e2e-8e8e8e8e8e8e/cover.jpg/100x100bb.jpg',
+      trackViewUrl: 'https://music.apple.com/album/young-folks/1440845678?i=1440845901'
     }
   }
 ]
